@@ -7,23 +7,7 @@ int heightScreen = 450;
 float unit = (225/45);
 int clicks[] = {};
 
-struct Drag {
-	int changeX, changeY;
-	int previousX, previousY;
-} WindowDrag;
-
 int update(void) {
-	WindowDrag.changeX = WindowDrag.previousX - GetMouseX();
-	WindowDrag.changeY = WindowDrag.previousY - GetMouseY();
-	
-	if (WindowDrag.changeX > 0 && WindowDrag.changeY > 0){
-		printf("Change: %d, %d\n", WindowDrag.changeX, WindowDrag.changeY);
-	}
-	if (IsMouseButtonDown(0)) {
-		SetWindowPosition(GetMouseX()+WindowDrag.changeX, GetMouseY()+WindowDrag.changeY);
-	}
-	WindowDrag.previousX = GetMouseX();
-	WindowDrag.previousY = GetMouseY();
 }
 
 int draw(void) {
@@ -36,8 +20,8 @@ int draw(void) {
 }
 
 int main(void) {
-	InitWindow(widthScreen, heightScreen, "RayLib");
-	SetWindowState(FLAG_WINDOW_UNDECORATED);
+	InitWindow(widthScreen, heightScreen, "GUessProgress Calculator");
+	// SetWindowState(FLAG_WINDOW_UNDECORATED);
 	
 	SetTargetFPS(60);
 	
