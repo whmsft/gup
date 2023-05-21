@@ -21,6 +21,11 @@ int draw(void) {
 int main(void) {
 	InitWindow(widthScreen, heightScreen, "RayLib");
 	SetWindowState(FLAG_WINDOW_UNDECORATED);
+	Image icon = LoadImage("favicon.v1.ico");
+	ImageFormat(&icon, PIXELFORMAT_UNCOMPRESSED_R8G8B8A8);
+	SetWindowIcon(icon);
+	UnloadImage(icon);
+	
 	SetTargetFPS(60);
 	
 	while (!WindowShouldClose()) {
